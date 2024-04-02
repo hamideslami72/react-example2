@@ -5,7 +5,7 @@ import useBlogsData from '../../hooks/useBlogsData'
 
 export default function AllBlogs() {
 
-   const blogs = useBlogsData()
+   const [blogs, loading, error] = useBlogsData()
 
   return (
     <div className=''>

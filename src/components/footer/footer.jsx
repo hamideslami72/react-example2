@@ -3,7 +3,7 @@ import useBlogsData from '../../hooks/useBlogsData'
 
 export default function Footer() {
 
-  const blogs = useBlogsData()
+  const [blogs, loading, error] = useBlogsData()
 
   return (
     <div className='bg-blue-500 text-white w-full'>

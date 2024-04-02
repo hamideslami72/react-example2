@@ -12,6 +12,7 @@ import Footer from './components/footer/footer';
 import Posts from './routes/posts';
 import AboutUS from './routes/aboutUS';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,7 +43,26 @@ const router = createBrowserRouter([
   },
 ]);
 
+
+// const DynamicRote = () =>
+// {
+//   let GetAllBloges
+//   if(router == "blogs")
+//   {
+//     GetAllBloges = "https://65f7f726b4f842e808867f20.mockapi.io/rocket-1/api/blogs";
+//   }
+//   return GetAllBloges
+// }
+
+// console.log(DynamicRote());
+
+
+
+
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
+  
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
