@@ -1,7 +1,5 @@
 import React from 'react'
 import LatestBlogs from '../components/blogs/latestBlogs'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   return (
@@ -9,7 +7,6 @@ export default function Home() {
       <div>
         <LatestBlogs />
       </div>
-      <ToastContainer />
    </>
   )
 }

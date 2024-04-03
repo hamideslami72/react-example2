@@ -11,6 +11,8 @@ import Home from './routes/home.jsx';
 import Footer from './components/footer/footer';
 import Posts from './routes/posts';
 import AboutUS from './routes/aboutUS';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const router = createBrowserRouter([
@@ -23,6 +25,7 @@ const router = createBrowserRouter([
           <Outlet />
         </div>
       <Footer />
+      <ToastContainer />
     </div>,
     errorElement: <div>error</div>,
 
