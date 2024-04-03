@@ -15,80 +15,41 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function LatestBlogs() {
     
     const [blogs, loading, error] = useBlogsData()
-
-    console.log(loading)
-    
-  return (
-    <div className=''>
-        <div className='flex justify-between items-center'>
-            <h2 className=' text-left font-extrabold text-3xl mb-10'>LatestBlogs</h2>
-            <a href={`/blogs`}className='text-blue-500 cursor-pointer'>See All</a>
-        </div>
-        <div className='relative'>
-            <Swiper style={{ '--swiper-navigation-sides-offset':'-50px' }} 
-                modules={[Navigation]} lazy={'true'} spaceBetween={50} navigation slidesPerView={4}>
-
-                {
-                 
-                    loading
-                    ?
-                    <>
-                        {[...Array(1)].map((_, index) => (
-                            <SwiperSlide key={index} className=''>
-                                <BlogsItemLoading />
-                            </SwiperSlide>
-                        ))}
-                    </>
-                    :
-                    <>
-                        {
-                            error
-                            ?
-                            <>
-                                {toast.error('Error Is :  ')}
-                            </>
-                            :
-                            
-                            <>
-                                {blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0,10).map((item,index)=>(
-                                    <SwiperSlide key={index} className=''>
-                                        <BlogsItem blog={item} index={index} key={index} />
-                                    </SwiperSlide>
-                                ))}
-                                <SwiperSlide className='' >
-                                    <ShowMore />
+    if (error) return toast.error(error)
+   
+    return (
+        <div className=''>
+            <div className='flex justify-between items-center'>
+                <h2 className=' text-left font-extrabold text-3xl mb-10'>LatestBlogs</h2>
+                <a href={`/blogs`}className='text-blue-500 cursor-pointer'>See All</a>
+            </div>
+            <div className='relative'>
+                <Swiper style={{ '--swiper-navigation-sides-offset':'-50px' }} 
+                    modules={[Navigation]} lazy={'true'} spaceBetween={50} navigation slidesPerView={4}>
+                    {
+                        loading
+                        ?
+                        <>
+                            {[...Array(4)].map((_, index) => (
+                                <SwiperSlide key={index} className=''>
+                                    <BlogsItemLoading />
                                 </SwiperSlide>
-                            </>
-                        }
-                    </> 
-                    
-                }
-                {/* {
-                    blogs
-                    ?
-                    <>
-                        {blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0,10).map((item,index)=>(
-                            <SwiperSlide key={index} className=''>
-                                <BlogsItem blog={item} index={index} key={index} />
-                            </SwiperSlide>
-                        ))}
-                        <SwiperSlide className='' >
-                            <ShowMore />
-                        </SwiperSlide>
-                    </>
-                    :
-                    <>
-                        {[...Array(4)].map((_, index) => (
-                            <SwiperSlide key={index} className=''>
-                                <BlogsItemLoading />
-                            </SwiperSlide>
-                        ))}
-                    </>
-                    
-                } */}
-
-            </Swiper>
+                            ))}
+                        </>
+                        :
+                        <>
+                            {blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0,10).map((item,index)=>(
+                                <SwiperSlide key={index} className=''>
+                                    <BlogsItem blog={item} index={index} key={index} />
+                                </SwiperSlide>
+                            ))}
+                            <SwiperSlide className='' >
+                                <ShowMore />
+                            </SwiperSlide> 
+                        </> 
+                    }
+                </Swiper>
+            </div>
         </div>
-    </div>
-  )
+    )
 }

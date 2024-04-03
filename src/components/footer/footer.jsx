@@ -3,7 +3,7 @@ import useBlogsData from '../../hooks/useBlogsData'
 
 export default function Footer() {
 
-  const [blogs, loading, error] = useBlogsData()
+//   const [blogs, loading, error] = useBlogsData()
 
   return (
     <div className='bg-blue-500 text-white w-full'>
@@ -18,9 +18,9 @@ export default function Footer() {
             <div>
                 <p className='font-bold text-xl mb-5'>Latest Blogs</p>
                 <div className='flex-col flex gap-y-1 text-sm'>
-                    {blogs&&(blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0,5).map((item,index)=>(
+                    {/* {blogs&&(blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0,5).map((item,index)=>(
                         <p key={index} className='text-neutral-300 hover:text-white cursor-pointer'>{item.title}</p>
-                    )))}
+                    )))} */}
                 </div>
             </div>
         </div>
